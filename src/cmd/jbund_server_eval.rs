@@ -26,6 +26,7 @@ pub fn handler(eval_args: Params) -> Result<Value, Error> {
             return Err(Error::invalid_params(format!("BUND::EVAL received unsupported parameter type.")));
         }
     };
+    log::debug!("BUNDCORE version: {}", bundcore::version());
     let mut bund = Bund::new();
     for s in scripts {
         match bund.eval(s) {
