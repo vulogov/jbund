@@ -14,3 +14,7 @@ test:
 clean:
 	cargo clean
 	cargo update
+
+commit:
+	aic -ac
+	git push

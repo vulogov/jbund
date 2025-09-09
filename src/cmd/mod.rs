@@ -1,9 +1,12 @@
 extern crate log;
 
+pub mod common;
 pub mod setloglevel;
 pub mod jbund_server;
 pub mod jbund_server_version;
 pub mod jbund_server_eval;
+pub mod jbund_server_run;
+pub mod jbund_adam;
 
 use lazy_static::lazy_static;
 use std::sync::Mutex;
@@ -39,6 +42,7 @@ pub fn main() {
         log::debug!("Enable JBUND profiler");
         time_graph::enable_data_collection(true);
     }
+    jbund_adam::run(&cli);
     jbund_server::run(&cli);
     if cli.profile {
         log::debug!("Generating JBUND profiler report");
@@ -60,6 +64,9 @@ pub struct Cli {
 
     #[clap(long, action = clap::ArgAction::SetTrue, help="Execute internal profiler")]
     pub profile: bool,
+
+    #[clap(short, long, value_delimiter = ' ', num_args = 0.., help="List of BUND sripts executed at bootstrap")]
+    pub bootstrap: Option<Vec<String>>,
 
     #[clap(long, action = clap::ArgAction::SetTrue, help="Disable colors in output")]
     pub nocolor: bool,
