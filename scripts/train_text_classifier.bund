@@ -1,0 +1,10 @@
+:TEST textclassifier.new
+    :rust "./scripts/rust.txt" textclassifier.train.from_file
+    "{A} tokens for RUST" format println
+    :kant "./scripts/kant.txt" textclassifier.train.from_file
+    "{A} tokens for KANT" format println
+    :astronomy "./scripts/astronomy.txt" textclassifier.train.from_file
+    "{A} tokens for ASTRONOMY" format println
+    :tolstoy "./scripts/tolstoy.txt" textclassifier.train.from_file
+    "{A} tokens for LEO TOLSTOY" format println
+    textclassifier.train.finish

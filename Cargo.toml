@@ -10,6 +10,7 @@ keywords = ["language", "stack", "concatenative", "lambda", "dynamic"]
 exclude = ["examples", "Models", "Documentation", ".*"]
 
 [dependencies]
+bund_stdlib_text_classifier = ">=0.*.*"
 bund_language_parser = ">=0.*.*"
 bundcore = ">=0.*.*"
 clap = { version = "4.5.18", features = ["derive"] }

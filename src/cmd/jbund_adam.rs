@@ -3,6 +3,7 @@ use lazy_static::lazy_static;
 use std::sync::Mutex;
 
 use bundcore::bundcore::Bund;
+use bund_stdlib_text_classifier;
 
 use crate::cmd::Cli;
 use crate::cmd::common;
@@ -18,6 +19,7 @@ pub fn run(cli: &Cli) {
     log::debug!("Creating an ADAM");
     let mut bund = ADAM.lock().unwrap();
     log::debug!("Initializing ADAM instance of BUND");
+    let _ = bund_stdlib_text_classifier::init_lib(&mut *bund);
     match &cli.bootstrap {
         Some(bootstrap) => {
             for s in bootstrap {
