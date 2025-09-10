@@ -1,3 +1,7 @@
+//
+// Let's train default TEST classifier
+//
+"Configuring TEST classifier for RUST/KANT/ANSTRONOMY/TOLSTOY categories" println
 :TEST textclassifier.new
     :rust "./scripts/rust.txt" textclassifier.train.from_file
     "{A} tokens for RUST" format println
