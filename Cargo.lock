@@ -247,9 +247,9 @@ dependencies = [
 
 [[package]]
 name = "bund_stdlib_text_classifier"
-version = "0.3.0"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83590638faf3fba3af63fa5125351f00220c420bc2171ccc215e31fd6f86217e"
+checksum = "4581b10fb326196ec70976ea38e670526994114af7ddbde7808cf7c2fddc6322"
 dependencies = [
  "bayesic",
  "bundcore",
@@ -264,12 +264,14 @@ dependencies = [
 
 [[package]]
 name = "bundcore"
-version = "0.4.0"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4d7299ba6cbf8b5843ae392f0ed792a933904e66aad303ba9a757f896b341fb5"
+checksum = "dfec298d44969184194901722a289a9afc6c881a27dbf264458ac7039b18f3c3"
 dependencies = [
  "bund_language_parser",
  "easy-error",
+ "lazy_static",
+ "log",
  "nanoid",
  "rust_dynamic",
  "rust_multistackvm",
@@ -3272,9 +3274,9 @@ dependencies = [
 
 [[package]]
 name = "rustls-webpki"
-version = "0.103.4"
+version = "0.103.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0a17884ae0c1b773f1ccd2bd4a8c72f16da897310a98b0e84bf349ad5ead92fc"
+checksum = "b5a37813727b78798e53c2bec3f5e8fe12a6d6f8389bf9ca7802add4c9905ad8"
 dependencies = [
  "ring",
  "rustls-pki-types",

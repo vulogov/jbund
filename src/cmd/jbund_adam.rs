@@ -7,6 +7,7 @@ use bund_stdlib_text_classifier;
 
 use crate::cmd::Cli;
 use crate::cmd::common;
+use crate::stdlib;
 
 lazy_static! {
     pub static ref ADAM: Mutex<Bund> = {
@@ -16,10 +17,12 @@ lazy_static! {
 }
 
 pub fn run(cli: &Cli) {
+    log::debug!("Setting up STDLIB");
+    stdlib::init_stdlib();
     log::debug!("Creating an ADAM");
     let mut bund = ADAM.lock().unwrap();
     log::debug!("Initializing ADAM instance of BUND");
-    let _ = bund_stdlib_text_classifier::init_lib(&mut *bund);
+    let _ = bund_stdlib_text_classifier::init_lib(&mut *bund as &mut bundcore::bundcore::Bund);
     match &cli.bootstrap {
         Some(bootstrap) => {
             for s in bootstrap {
