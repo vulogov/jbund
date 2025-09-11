@@ -1,7 +1,6 @@
 use jsonrpc_http_server::jsonrpc_core::{Params, Error};
 use serde_json::{Value};
 use bundcore::bundcore::Bund;
-use bund_stdlib_text_classifier;
 use rust_dynamic::types::*;
 
 pub fn handler(eval_args: Params) -> Result<Value, Error> {
@@ -29,7 +28,6 @@ pub fn handler(eval_args: Params) -> Result<Value, Error> {
     };
     log::debug!("BUNDCORE version: {}", bundcore::version());
     let mut bund = Bund::new();
-    let _ = bund_stdlib_text_classifier::init_lib(&mut bund);
     for s in scripts {
         match bund.eval(s) {
             Ok(_) => continue,
